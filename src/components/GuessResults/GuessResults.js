@@ -1,10 +1,10 @@
 import React from 'react';
 
-function GuessResults({ guessResults }) {
+function GuessResults({ guesses }) {
   return (
     <div className="guess-results">
-      {guessResults.map((guess, index) => (
-        <p key={`${guess}-${index}`} className="guess">
+      {guesses.map((guess, index) => (
+        <p key={index} className="guess">
           {guess}
         </p>
       ))}
