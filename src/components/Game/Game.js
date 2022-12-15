@@ -2,7 +2,8 @@ import React from 'react';
 
 import GuessResults from '../GuessResults';
 import GuessInput from '../GuessInput';
-import Banner from '../Banner';
+import WonBanner from '../WonBanner';
+import LostBanner from '../LostBanner';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
@@ -33,9 +34,8 @@ function Game() {
     <>
       <GuessResults guesses={guesses} answer={answer} />
       <GuessInput handleSubmitGuess={handleSubmitGuess} status={status} />
-      {status !== 'running' && (
-        <Banner status={status} answer={answer} guesses={guesses} />
-      )}
+      {status === 'won' && <WonBanner numOfGuesses={guesses.length} />}
+      {status === 'lost' && <LostBanner answer={answer} />}
     </>
   );
 }
